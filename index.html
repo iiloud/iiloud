@@ -1,0 +1,80 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>iiLøud Audio</title>
+  <link href="https://fonts.googleapis.com/css2?family=UnifrakturCook:wght@700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      background-color: #000;
+      color: #c0c0c0;
+      font-family: 'MS Sans Serif', sans-serif;
+      cursor: url('cursor-default.cur'), auto;
+    }
+    a:hover, button:hover {
+      cursor: url('cursor-hover.cur'), auto;
+    }
+    .boot {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: black;
+      color: green;
+      font-family: monospace;
+      font-size: 1rem;
+      z-index: 99999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div id="boot-screen" class="boot">
+    <div id="boot-text">Initializing iiLøud.exe...</div>
+  </div>
+
+  <div style="padding:2rem; text-align:center;">
+    <h1 style="font-family: 'UnifrakturCook', cursive; font-size: 3rem;">iiLøud Audio</h1>
+    <p><i>From nothing to nothing.</i></p>
+    <button onclick="playSound()">Enter the Noise</button>
+  </div>
+
+  <audio id="click-sound" src="https://assets.mixkit.co/sfx/preview/mixkit-retro-confirmation-tone-2863.mp3" preload="auto"></audio>
+
+  <script>
+    const bootText = document.getElementById('boot-text');
+    const bootScreen = document.getElementById('boot-screen');
+    const lines = [
+      'Loading system files...',
+      'Starting audio stack...',
+      'Accessing iiLøud Audio vault...',
+      'Booting interface...',
+      'iiLøud Audio. From nothing to nothing.'
+    ];
+    let i = 0;
+    function typeNext() {
+      if (i < lines.length) {
+        bootText.textContent = lines[i];
+        i++;
+        setTimeout(typeNext, 1000);
+      } else {
+        bootScreen.style.display = 'none';
+      }
+    }
+    setTimeout(typeNext, 1000);
+
+    function playSound() {
+      const clickSound = document.getElementById('click-sound');
+      clickSound.currentTime = 0;
+      clickSound.play();
+    }
+  </script>
+</body>
+</html>
