@@ -1,0 +1,33 @@
+
+body {
+  background-color: #e5e5de;
+  color: #111;
+  font-family: 'Courier New', monospace;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  color: #cc0000;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+a:hover {
+  text-shadow: 0 0 5px #cc0000;
+}
+
+.terminal {
+  padding: 2rem;
+  white-space: pre-line;
+  font-size: 1rem;
+}
+
+.bootup {
+  color: #444;
+  animation: blink 1s step-start infinite;
+}
+
+@keyframes blink {
+  50% { opacity: 0; }
+}
